@@ -59,6 +59,14 @@ export const venueSlice = createSlice({
         state[index].quantity++;
       }
     },
+
+    /**
+     * This function handles decrementing the quantity of a venue item in the state. It receives an action containing the index of the item to be decremented.
+     * It first checks if the item exists in the state at the provided index and if its quantity is greater than 0.
+     * If both conditions are met, the quantity of the item will be decreased by one.
+     * @param {*} state 
+     * @param {*} action 
+     */
     decrementQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
