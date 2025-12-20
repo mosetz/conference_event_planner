@@ -1,6 +1,7 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
 import venueReducer from './venueSlice';
+import avReducer from './avSlice'
 
 /**
  * This code creates a global Redux store 
@@ -9,5 +10,6 @@ import venueReducer from './venueSlice';
 export default configureStore({
   reducer: {
     venue: venueReducer,
+    av: avReducer,
   },
 });
