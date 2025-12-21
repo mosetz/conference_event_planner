@@ -16,19 +16,19 @@ export const avSlice = createSlice({
         quantity: 0,
     },
     {
-        image: "https://pixabay.com/photos/audio-microphone-1844798/",
+        image: "https://cdn.pixabay.com/photo/2016/11/21/11/32/audio-1844798_1280.jpg",
         name: "Microphones",
         cost: 45,
         quantity: 0,
     },
     {
-        image: "https://pixabay.com/photos/table-chair-whiteboard-interior-8429665/",
+        image: "https://cdn.pixabay.com/photo/2023/12/04/14/58/table-8429665_1280.jpg",
         name: "Whiteboards",
         cost: 80,
         quantity: 0,
     },
     {
-        image: "https://pixabay.com/photos/christmas-day-furniture-wooden-2597781/",
+        image: "https://cdn.pixabay.com/photo/2017/08/07/00/03/christmas-2597781_1280.jpg",
         name: "Signage",
         cost: 80,
         quantity: 0
