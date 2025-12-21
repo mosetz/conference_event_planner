@@ -4,13 +4,16 @@ import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementQuantity, decrementQuantity } from "./venueSlice";
 import { incrementAvQuantity, decrementAvQuantity } from "./avSlice";
+import { toggleMealSelection } from "./mealsSlice";
+
 const ConferenceEvent = () => {
     const [showItems, setShowItems] = useState(false);
     const [numberOfPeople, setNumberOfPeople] = useState(1);
 
     const venueItems = useSelector((state) => state.venue); //retrieves venue items from the Redux store state.
     const avItems = useSelector((state) => state.av); //retrieves av items from the Redux store state.
-    
+    const mealItems = useSelector((state) => state.meals); //retrieves meals items from the Redux store state.
+
     const dispatch = useDispatch();
 
     
@@ -204,10 +207,13 @@ const ConferenceEvent = () => {
                                 </div>
 
                                 <div className="input-container venue_selection">
-
+                                    <label htmlFor="numberOfPeople"><h3>Number of People:</h3></label>
+                                    <input type="number" id="numberOfPeople" className="input_box5" value={numberOfPeople} 
+                                        onChange={(e) => parseInt(setNumberOfPeople(e.target.value))} min='1'
+                                    />
                                 </div>
                                 <div className="meal_selection">
-
+                                    meal
                                 </div>
                                 <div className="total_cost">Total Cost: </div>
 
