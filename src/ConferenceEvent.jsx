@@ -16,8 +16,6 @@ const ConferenceEvent = () => {
 
     const dispatch = useDispatch();
 
-    
-
     /**
      * Calculates the remaining number of available auditorium halls to three, 
      * so the user cannot request more than three.
@@ -70,6 +68,31 @@ const ConferenceEvent = () => {
 
     const getItemsFromTotalCost = () => {
         const items = [];
+        venueItems.forEach((item) => {
+            if (item.quantity > 0) {
+                items.push({...item, type: "venue"});
+            }
+        });
+
+        avItems.forEach((item) => {
+            if (
+                item.quantity > 0 &&
+                !item.some((i) => i.name === item.name && i.type === "av")
+            ){
+                items.push(...item, type: "av")
+            }
+        });
+
+        mealItems.forEach((item) => {
+            if (item.selected) {
+                const itemForDisplay = {...item, type: "meals"}
+                if (item.numberOfPeople){
+                    itemForDisplay.numberOfPeople = numberOfPeople
+                } 
+                item.push(itemForDisplay);
+            }
+        });
+        return items;
     };
 
     const items = getItemsFromTotalCost();
@@ -94,6 +117,13 @@ const ConferenceEvent = () => {
                 }
             });
         }
+
+        const totalCosts = {
+            venue: venueTotalCost,
+            av: avTotalCost,
+            meals: mealsTotalCost
+        }
+
         return totalCost;
       };
     const venueTotalCost = calculateTotalCost("venue");

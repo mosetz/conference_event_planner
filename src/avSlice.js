@@ -4,13 +4,13 @@ export const avSlice = createSlice({
   name: "av",
   initialState: [
     {
-        image: "https://pixabay.com/photos/technology-projector-film-7007329/",
+        image: "https://cdn.pixabay.com/photo/2022/02/11/13/16/technology-7007329_1280.jpg",
         name: "Projectors",
         cost: 200,
         quantity: 0,
     },
     {
-        image: "https://pixabay.com/photos/bluetooth-speaker-bedroom-music-4311748/",
+        image: "https://cdn.pixabay.com/photo/2019/07/02/07/39/bluetooth-4311748_1280.jpg",
         name: "Speaker",
         cost: 35,
         quantity: 0,
