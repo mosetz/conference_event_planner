@@ -9,9 +9,9 @@ import mealReducer from './mealsSlice';
  * so all components in the application can access the state managed by the venueReducer()
  */
 export default configureStore({
-  reducer: {
-    venue: venueReducer,
-    av: avReducer,
-    meals: mealReducer
-  },
+    reducer: {
+        venue: venueReducer,
+        av: avReducer,
+        meals: mealReducer
+    },
 });
