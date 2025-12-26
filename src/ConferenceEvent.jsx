@@ -52,7 +52,7 @@ const ConferenceEvent = () => {
     };
 
     /**
-     * This function checks if the retrieved item is both selected if it selected(true) numberOfpeople remain
+     * This function checks if the retrieved item is both selected if it selected(true) numberOfPeople remain
      * If not selected(false) it set to 0
      * @param {*} index 
      */
@@ -297,7 +297,7 @@ const ConferenceEvent = () => {
                                 <div className="input-container venue_selection">
                                     <label htmlFor="numberOfPeople"><h3>Number of People:</h3></label>
                                     <input type="number" id="numberOfPeople" className="input_box5" value={numberOfPeople} 
-                                        onChange={(e) => setNumberOfPeople(parseInt(e.target.value, 10) || 1)} min='1'
+                                        onChange={(e) => setNumberOfPeople(parseInt(e.target.value, 10) || 1)} min='1' //prase to int base 10 with a fallback to 1 in case of value is NaN or undefined 
                                     />
                                 </div>
 
