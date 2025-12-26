@@ -32,6 +32,8 @@ const ConferenceEvent = () => {
     const handleAddToCart = (index) => {
         if (venueItems[index].name === "Auditorium Hall (Capacity:200)" && venueItems[index].quantity >= 3) {
             return; //Prevent further additions
+        }else if (venueItems[index].quantity >= 10) {
+            return;
         }
         dispatch(incrementQuantity(index));
     };
@@ -167,7 +169,7 @@ const ConferenceEvent = () => {
 
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
-            if (showItems) { // Check if showItems is false
+            if (showItems) { // If currently in "details" mode (showItems = true)
                 setShowItems(!showItems); // Toggle showItems to true only if it's currently false
             }
         }
@@ -214,7 +216,7 @@ const ConferenceEvent = () => {
                                                             className={venueItems[index].quantity === 0 ? "btn-warning btn-disabled" : "btn-minus btn-warning"}
                                                             onClick={() => handleRemoveFromCart(index)}
                                                         >
-                                        &#8211;
+                                                            &#8211;
                                                         </button>
                                                         <span className="selected_count">
                                                             {venueItems[index].quantity > 0 ? ` ${venueItems[index].quantity}` : "0"}
@@ -223,7 +225,7 @@ const ConferenceEvent = () => {
                                                             className={remainingAuditoriumQuantity === 0? "btn-success btn-disabled" : "btn-success btn-plus"}
                                                             onClick={() => handleAddToCart(index)}
                                                         >
-                                         &#43;
+                                                            &#43;
                                                         </button>
                                                     </>
                                                 ) : (
@@ -265,7 +267,7 @@ const ConferenceEvent = () => {
                                 </div>
                                 <div className="addons_selection">
                                     {avItems.map((item, index) => (
-                                        <div className="av_data vanue_main" key={index}>
+                                        <div className="av_data venue_main" key={index}>
                                             <div className="img">
                                                 <img src={item.image} alt={item.name} />
                                             </div>
